@@ -29,4 +29,4 @@ If the rules are met , then based on the rule task is done .
 
 Also there is a database connection , so the data is also saved to db. 
 
-[![Watch the video](https://i.stack.imgur.com/Vp2cE.png)](https://github.com/omkashyap007/Gmail-API/blob/master/HappyFox%20Assignment.mp4)
+[![Watch the video](https://github.com/omkashyap007/Gmail-API/blob/master/HappyFox%20Assignment.mp4)](https://github.com/omkashyap007/Gmail-API/blob/master/HappyFox%20Assignment.mp4)
