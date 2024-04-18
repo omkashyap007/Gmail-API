@@ -28,3 +28,5 @@ After that , it fetches all the data related to the mail , and then the list of 
 If the rules are met , then based on the rule task is done . 
 
 Also there is a database connection , so the data is also saved to db. 
+
+[![Watch the video](https://i.stack.imgur.com/Vp2cE.png)](https://github.com/omkashyap007/Gmail-API/blob/master/HappyFox%20Assignment.mp4)
