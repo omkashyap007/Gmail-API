@@ -11,7 +11,6 @@ rules = {
             "predicate" : "is less than" ,  
             "value" : 0 , 
         }
-    
 }
 
 tasks = {

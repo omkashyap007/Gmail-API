@@ -65,20 +65,7 @@ def processMessageList(message_list) :
     cursor = connection.cursor()
     connection.commit()
     processed_list = []
-    for message in message_list :
-        print(message["message_id"][:20] )
-        print(message["Subject"][:100] )
-        print(message["Date"][:20] )
-        print(message["msg_to"][:30] )
-        print(message["From"][:200] )
-        print(message["message_body"][:100] )
-        print(message["message_snippet"][:100])
-        
-        
-        
-        
-        
-        
+    for message in message_list :        
         query = """INSERT INTO email_data (message_id , Subject , Date , msg_to , msg_from , message_body , message_snippet ) VALUES (%s , %s ,%s ,%s , %s ,%s , %s ) """ 
         try : 
             cursor.execute(

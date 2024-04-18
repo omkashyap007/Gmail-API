@@ -30,8 +30,8 @@ def getUnreadMessageData(credentials) :
     UNREAD = "UNREAD"
 
     gmail_service =  build("gmail", "v1", credentials = credentials)
-    unread_messages = gmail_service.users().messages().list(userId = user_id ,labelIds=[INBOX, UNREAD] , maxResults = 10 ).execute()
-    messages = unread_messages["messages"][:10]
+    unread_messages = gmail_service.users().messages().list(userId = user_id ,labelIds=[INBOX, UNREAD] , maxResults = 50 ).execute()
+    messages = unread_messages["messages"]
     message_data_list = []    
     for message in messages :
         message_dictionary = {field : "" for field in message_fields}
@@ -80,19 +80,16 @@ if __name__ == "__main__" :
     user_id = "me"
     credentials = createCredentials(SCOPES)
     gmail_service , unread_message_data_list = getUnreadMessageData(credentials)
-    print(unread_message_data_list[0])
     processed_list = processMessageList(unread_message_data_list)
     for data in processed_list :
         value , message_id = data
         match value :
             case "all" :
-                # gmail_service.users().messages().modify(userId=user_id, id=message_id,body={ "removeLabelIds": ["UNREAD"]}).execute() 
+                gmail_service.users().messages().modify(userId=user_id, id=message_id,body={ "removeLabelIds": ["UNREAD"]}).execute()
                 print(f"Message followed all the rules : marked read : {message_id}")
             case "any" :
-                # gmail_service.users().messages().modify(userId=user_id, id=message_id,body={ "addLabelIds" : ["INBOX"]}).execute()
-                print("Message followed few rules : marked read : moved to inbox : {message_id}")
+                gmail_service.users().messages().modify(userId=user_id, id=message_id,body={ "addLabelIds" : ["INBOX"]}).execute()
+                print(f"Message followed few rules : marked read : moved to inbox : {message_id}")
             case "none" : 
                 ...
                 
-
-# This will mark the messagea as read
